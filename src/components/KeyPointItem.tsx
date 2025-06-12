@@ -6,7 +6,7 @@ import { TYPE_COLORS } from "@/data/summaryColors";
 
 export function KeyPointItem({ keyPoint }: { keyPoint: KeyPoint }) {
   return (
-    <div className="flex items-start gap-3 p-3 rounded-lg border border-gray-100 hover:border-gray-200 transition-colors">
+    <div className="flex items-start flex-col md:flex-row gap-3 p-3 rounded-lg border border-gray-100 hover:border-gray-200 transition-colors">
       <div className="flex items-center gap-2 mt-0.5">
         {keyPoint.critical && (
           <AlertTriangleIcon className="h-3 w-3 text-red-500 flex-shrink-0" />

@@ -14,8 +14,8 @@ export function SectionCard({ section }: { section: Section }) {
   return (
     <Card className="hover:shadow-md transition-shadow">
       <CardHeader className="pb-3">
-        <div className="flex items-start justify-between">
-          <div className="flex items-center gap-3">
+        <div className="flex items-start flex-col md:flex-row gap-2 justify-between">
+          <div className="flex items-center flex-row gap-3">
             <div className="p-2 bg-orange-100 rounded-lg">
               <IconComponent className="h-4 w-4 text-orange-600" />
             </div>
@@ -30,7 +30,7 @@ export function SectionCard({ section }: { section: Section }) {
               )}
             </div>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center ms-10 md:ms-0 gap-2">
             {criticalPoints?.length > 0 && (
               <Badge variant="destructive" className="text-xs">
                 {criticalPoints?.length} critical
