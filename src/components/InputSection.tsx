@@ -39,7 +39,7 @@ export function InputSection({
             placeholder="Paste your terms and conditions here..."
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
-            className="min-h-[300px] max-h-96 md:max-h-[35rem] resize-none focus:ring-orange-500 focus:border-orange-500"
+            className="min-h-[300px] max-h-96 md:max-h-[25rem] 2xl:max-h-[35rem] resize-none focus:ring-orange-500 focus:border-orange-500"
           />
           {inputText && (
             <WordCharCountStats
