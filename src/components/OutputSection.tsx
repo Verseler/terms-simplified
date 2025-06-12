@@ -106,7 +106,7 @@ export function OutputSection({ summaryData, isLoading }: OutputSectionProps) {
 
       {/* Disclaimer */}
       <Card>
-        <CardContent className="p-0">
+        <CardContent className="py-0 px-4">
           <p className="text-xs text-gray-600 text-center">
             {summaryData.summary.disclaimer}
           </p>
