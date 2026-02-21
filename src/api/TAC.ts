@@ -1,17 +1,20 @@
 import type { SummaryData } from '@/lib/type';
 import { promptInstructions } from '@/data/promptInstructions';
-import { GoogleGenerativeAI } from '@google/generative-ai';
 import { formatSummary } from '@/lib/utils';
+import { createGroq } from '@ai-sdk/groq';
+import { generateText } from 'ai';
 
-const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY || '');
-const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+const groqClient = createGroq({ apiKey: import.meta.env.VITE_GROQ_API_KEY });
+
 
 export const summarizeTAC = async (content: string): Promise<SummaryData> => {
   const prompt = `${promptInstructions} Content to analyze:${content}`;
 
-  const result = await model.generateContent(prompt);
-  const response = result.response;
-  const summary = response.text();
+  
+const { text } = await generateText({
+  model: groqClient('llama-3.3-70b-versatile'),
+  prompt: prompt,
+});
 
-  return formatSummary(summary);
+  return formatSummary(text);
 }

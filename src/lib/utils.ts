@@ -18,7 +18,10 @@ export function formatText(text: string) {
 }
 
 export function formatSummary(summary: string): SummaryData {
-  const cleanedString = summary.replace(/^```json\s*/i, '').replace(/```$/, '');  
+  const cleanedString = summary
+    .replace(/^```(?:json)?\s*/i, '')
+    .replace(/```\s*$/, '')
+    .trim();
 
   return JSON.parse(cleanedString);
 }
